@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1785961A2BBF2ACC006BE87D /* keyaccesspassApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178596192BBF2ACC006BE87D /* keyaccesspassApp.swift */; };
-		1785961C2BBF2ACC006BE87D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785961B2BBF2ACC006BE87D /* ContentView.swift */; };
+		177A8E8D2BC4831600CEDED2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A8E8C2BC4831600CEDED2 /* AppDelegate.swift */; };
+		177A8E8F2BC4852E00CEDED2 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A8E8E2BC4852E00CEDED2 /* MainScreen.swift */; };
 		1785961E2BBF2ACE006BE87D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1785961D2BBF2ACE006BE87D /* Assets.xcassets */; };
 		178596212BBF2ACE006BE87D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178596202BBF2ACE006BE87D /* Preview Assets.xcassets */; };
+		178596292BBF30B7006BE87D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 178596282BBF30B7006BE87D /* FirebaseMessaging */; };
+		1785962B2BBF3317006BE87D /* CustomNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785962A2BBF3317006BE87D /* CustomNotificationView.swift */; };
+		1785962D2BC02986006BE87D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1785962C2BC02986006BE87D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		177A8E8C2BC4831600CEDED2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		177A8E8E2BC4852E00CEDED2 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		178596162BBF2ACC006BE87D /* keyaccesspass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keyaccesspass.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		178596192BBF2ACC006BE87D /* keyaccesspassApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyaccesspassApp.swift; sourceTree = "<group>"; };
-		1785961B2BBF2ACC006BE87D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1785961D2BBF2ACE006BE87D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		178596202BBF2ACE006BE87D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1785962A2BBF3317006BE87D /* CustomNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotificationView.swift; sourceTree = "<group>"; };
+		1785962C2BC02986006BE87D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1785962E2BC03061006BE87D /* keyaccesspass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = keyaccesspass.entitlements; sourceTree = "<group>"; };
+		1785962F2BC03068006BE87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		178596302BC03B5F006BE87D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178596292BBF30B7006BE87D /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +44,8 @@
 		1785960D2BBF2ACC006BE87D = {
 			isa = PBXGroup;
 			children = (
+				178596302BC03B5F006BE87D /* README.md */,
+				1785962C2BC02986006BE87D /* GoogleService-Info.plist */,
 				178596182BBF2ACC006BE87D /* keyaccesspass */,
 				178596172BBF2ACC006BE87D /* Products */,
 			);
@@ -51,10 +62,13 @@
 		178596182BBF2ACC006BE87D /* keyaccesspass */ = {
 			isa = PBXGroup;
 			children = (
-				178596192BBF2ACC006BE87D /* keyaccesspassApp.swift */,
-				1785961B2BBF2ACC006BE87D /* ContentView.swift */,
+				1785962F2BC03068006BE87D /* Info.plist */,
+				1785962E2BC03061006BE87D /* keyaccesspass.entitlements */,
 				1785961D2BBF2ACE006BE87D /* Assets.xcassets */,
 				1785961F2BBF2ACE006BE87D /* Preview Content */,
+				1785962A2BBF3317006BE87D /* CustomNotificationView.swift */,
+				177A8E8E2BC4852E00CEDED2 /* MainScreen.swift */,
+				177A8E8C2BC4831600CEDED2 /* AppDelegate.swift */,
 			);
 			path = keyaccesspass;
 			sourceTree = "<group>";
@@ -83,6 +97,9 @@
 			dependencies = (
 			);
 			name = keyaccesspass;
+			packageProductDependencies = (
+				178596282BBF30B7006BE87D /* FirebaseMessaging */,
+			);
 			productName = keyaccesspass;
 			productReference = 178596162BBF2ACC006BE87D /* keyaccesspass.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 1785960D2BBF2ACC006BE87D;
+			packageReferences = (
+				178596272BBF30B7006BE87D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 178596172BBF2ACC006BE87D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +147,7 @@
 			files = (
 				178596212BBF2ACE006BE87D /* Preview Assets.xcassets in Resources */,
 				1785961E2BBF2ACE006BE87D /* Assets.xcassets in Resources */,
+				1785962D2BC02986006BE87D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +158,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1785961C2BBF2ACC006BE87D /* ContentView.swift in Sources */,
-				1785961A2BBF2ACC006BE87D /* keyaccesspassApp.swift in Sources */,
+				177A8E8F2BC4852E00CEDED2 /* MainScreen.swift in Sources */,
+				1785962B2BBF3317006BE87D /* CustomNotificationView.swift in Sources */,
+				177A8E8D2BC4831600CEDED2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,17 +291,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = keyaccesspass/keyaccesspass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"keyaccesspass/Preview Content\"";
-				DEVELOPMENT_TEAM = M8PW6AG75Q;
+				DEVELOPMENT_TEAM = 7T5W54TP57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = keyaccesspass/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = KeyAccess;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +313,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.keyaccess.keyaccesspass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -298,17 +328,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = keyaccesspass/keyaccesspass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"keyaccesspass/Preview Content\"";
-				DEVELOPMENT_TEAM = M8PW6AG75Q;
+				DEVELOPMENT_TEAM = 7T5W54TP57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = keyaccesspass/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = KeyAccess;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +350,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.keyaccess.keyaccesspass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -344,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		178596272BBF30B7006BE87D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		178596282BBF30B7006BE87D /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178596272BBF30B7006BE87D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1785960E2BBF2ACC006BE87D /* Project object */;
 }
