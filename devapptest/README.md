@@ -26,4 +26,9 @@ https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-ap
 https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application?language=objc
 |
 https://forums.developer.apple.com/forums/thread/99831
-
+|
+https://tracker.my.com/blog/232/a-detailed-guide-to-mobile-push-notifications
+|
+https://www.innominds.com/blog/user-interaction-on-notifications-made-simple-and-flexible-with-rich-notifications-in-ios
+|
+https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1
