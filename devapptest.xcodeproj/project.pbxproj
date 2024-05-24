@@ -11,11 +11,42 @@
 		1775C4A92BCDD761009DB219 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775C4A82BCDD761009DB219 /* ContentView.swift */; };
 		1775C4AB2BCDD763009DB219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1775C4AA2BCDD763009DB219 /* Assets.xcassets */; };
 		1775C4AE2BCDD763009DB219 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1775C4AD2BCDD763009DB219 /* Preview Assets.xcassets */; };
+		17969F4F2BCF44170076F6C9 /* SoundPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */; };
+		17969F572BCF46E40076F6C9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F562BCF46E40076F6C9 /* NotificationService.swift */; };
+		17969F5B2BCF46E40076F6C9 /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 17969F542BCF46E40076F6C9 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17969F612BCF53EC0076F6C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F602BCF53EC0076F6C9 /* ViewController.swift */; };
+		17969F662BCF5A300076F6C9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F652BCF5A300076F6C9 /* NotificationManager.swift */; };
+		17969F682BCF625E0076F6C9 /* VibrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F672BCF625E0076F6C9 /* VibrationService.swift */; };
 		17A6B9EE2BCE9E530049AD6A /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A6B9ED2BCE9E530049AD6A /* NotificationView.swift */; };
 		17A6B9F12BCE9ED10049AD6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17A6B9EF2BCE9ED10049AD6A /* GoogleService-Info.plist */; };
 		17A6B9F22BCE9ED10049AD6A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 17A6B9F02BCE9ED10049AD6A /* README.md */; };
 		17A6B9F52BCE9F3E0049AD6A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 17A6B9F42BCE9F3E0049AD6A /* FirebaseMessaging */; };
+		17CF73552BFF850500305163 /* VoipActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF73542BFF850500305163 /* VoipActivityAttributes.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17969F592BCF46E40076F6C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1775C49B2BCDD761009DB219 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17969F532BCF46E40076F6C9;
+			remoteInfo = NotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		17969F5F2BCF46E40076F6C9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				17969F5B2BCF46E40076F6C9 /* NotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1775C4A32BCDD761009DB219 /* devapptest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devapptest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,11 +54,19 @@
 		1775C4A82BCDD761009DB219 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1775C4AA2BCDD763009DB219 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1775C4AD2BCDD763009DB219 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerService.swift; sourceTree = "<group>"; };
+		17969F542BCF46E40076F6C9 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		17969F562BCF46E40076F6C9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		17969F582BCF46E40076F6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17969F602BCF53EC0076F6C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		17969F652BCF5A300076F6C9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		17969F672BCF625E0076F6C9 /* VibrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationService.swift; sourceTree = "<group>"; };
 		17A6B9ED2BCE9E530049AD6A /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		17A6B9EF2BCE9ED10049AD6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17A6B9F02BCE9ED10049AD6A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		17A6B9F62BCEAA380049AD6A /* devapptest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = devapptest.entitlements; sourceTree = "<group>"; };
 		17A6B9F72BCEAA480049AD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		17CF73542BFF850500305163 /* VoipActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoipActivityAttributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +78,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17969F512BCF46E40076F6C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -46,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				1775C4A52BCDD761009DB219 /* devapptest */,
+				17969F552BCF46E40076F6C9 /* NotificationService */,
 				1775C4A42BCDD761009DB219 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1775C4A32BCDD761009DB219 /* devapptest.app */,
+				17969F542BCF46E40076F6C9 /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +118,11 @@
 				1775C4AA2BCDD763009DB219 /* Assets.xcassets */,
 				1775C4AC2BCDD763009DB219 /* Preview Content */,
 				17A6B9ED2BCE9E530049AD6A /* NotificationView.swift */,
+				17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */,
+				17969F602BCF53EC0076F6C9 /* ViewController.swift */,
+				17969F652BCF5A300076F6C9 /* NotificationManager.swift */,
+				17969F672BCF625E0076F6C9 /* VibrationService.swift */,
+				17CF73542BFF850500305163 /* VoipActivityAttributes.swift */,
 			);
 			path = devapptest;
 			sourceTree = "<group>";
@@ -82,6 +135,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		17969F552BCF46E40076F6C9 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				17969F562BCF46E40076F6C9 /* NotificationService.swift */,
+				17969F582BCF46E40076F6C9 /* Info.plist */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,10 +154,12 @@
 				1775C49F2BCDD761009DB219 /* Sources */,
 				1775C4A02BCDD761009DB219 /* Frameworks */,
 				1775C4A12BCDD761009DB219 /* Resources */,
+				17969F5F2BCF46E40076F6C9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				17969F5A2BCF46E40076F6C9 /* PBXTargetDependency */,
 			);
 			name = devapptest;
 			packageProductDependencies = (
@@ -104,6 +168,23 @@
 			productName = devapptest;
 			productReference = 1775C4A32BCDD761009DB219 /* devapptest.app */;
 			productType = "com.apple.product-type.application";
+		};
+		17969F532BCF46E40076F6C9 /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17969F5C2BCF46E40076F6C9 /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				17969F502BCF46E40076F6C9 /* Sources */,
+				17969F512BCF46E40076F6C9 /* Frameworks */,
+				17969F522BCF46E40076F6C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = 17969F542BCF46E40076F6C9 /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -116,6 +197,9 @@
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1775C4A22BCDD761009DB219 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					17969F532BCF46E40076F6C9 = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
@@ -137,6 +221,7 @@
 			projectRoot = "";
 			targets = (
 				1775C4A22BCDD761009DB219 /* devapptest */,
+				17969F532BCF46E40076F6C9 /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -153,6 +238,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17969F522BCF46E40076F6C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -160,13 +252,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17969F662BCF5A300076F6C9 /* NotificationManager.swift in Sources */,
+				17CF73552BFF850500305163 /* VoipActivityAttributes.swift in Sources */,
+				17969F612BCF53EC0076F6C9 /* ViewController.swift in Sources */,
 				1775C4A92BCDD761009DB219 /* ContentView.swift in Sources */,
 				1775C4A72BCDD761009DB219 /* devapptestApp.swift in Sources */,
 				17A6B9EE2BCE9E530049AD6A /* NotificationView.swift in Sources */,
+				17969F682BCF625E0076F6C9 /* VibrationService.swift in Sources */,
+				17969F4F2BCF44170076F6C9 /* SoundPlayerService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17969F502BCF46E40076F6C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17969F572BCF46E40076F6C9 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		17969F5A2BCF46E40076F6C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17969F532BCF46E40076F6C9 /* NotificationService */;
+			targetProxy = 17969F592BCF46E40076F6C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1775C4AF2BCDD763009DB219 /* Debug */ = {
@@ -291,6 +404,7 @@
 		1775C4B22BCDD763009DB219 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = devapptest/devapptest.entitlements;
@@ -313,15 +427,20 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.keyaccess.devapptest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		1775C4B32BCDD763009DB219 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = devapptest/devapptest.entitlements;
@@ -344,9 +463,71 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.keyaccess.devapptest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		17969F5D2BCF46E40076F6C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7T5W54TP57;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.keyaccess.devapptest.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		17969F5E2BCF46E40076F6C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7T5W54TP57;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.keyaccess.devapptest.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -367,6 +548,15 @@
 			buildConfigurations = (
 				1775C4B22BCDD763009DB219 /* Debug */,
 				1775C4B32BCDD763009DB219 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17969F5C2BCF46E40076F6C9 /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17969F5D2BCF46E40076F6C9 /* Debug */,
+				17969F5E2BCF46E40076F6C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

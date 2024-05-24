@@ -9,7 +9,11 @@ import SwiftUI
 
 
 
+
 struct NotificationView: View {
+    
+    
+        
     var data: Any
        var body: some View {
            VStack(alignment: .center, spacing: 10.0) {

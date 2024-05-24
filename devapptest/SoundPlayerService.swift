@@ -10,34 +10,32 @@ import UIKit
 
  
 
-class SoundPlayer {
-    static let shared = SoundPlayer()
+class SoundPlayerService {
+    static let shared = SoundPlayerService()
     
     private var audioPlayer: AVAudioPlayer?
     
-    func playSound(named soundName: String? = nil) {
-        // Se um nome de som foi fornecido, tentamos reproduzi-lo
-        if let soundName = soundName {
-            if let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
-                do {
-                    // Configura e inicia a reprodução do som
-                    audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                    audioPlayer?.numberOfLoops = -1 // Reproduzir indefinidamente
-                    audioPlayer?.prepareToPlay()
-                    audioPlayer?.play()
-                } catch {
-                    print("Erro ao inicializar o player de áudio: \(error.localizedDescription)")
-                }
-            } else {
-                print("O arquivo de som não pôde ser encontrado.")
-            }
-        } else {
-            // Se nenhum nome de som foi fornecido, paramos a reprodução de qualquer som atual
-            audioPlayer?.stop()
+    func playRingtone() {
+        // Obtém o caminho do som do ringtone padrão do sistema
+        guard let ringtoneURL = Bundle.main.url(forResource: "ringtone", withExtension: "mp3") else {
+            print("O arquivo de ringtone do sistema não pôde ser encontrado.")
+            return
+        }
+        
+        do {
+            // Configura e inicia a reprodução do ringtone
+            audioPlayer = try AVAudioPlayer(contentsOf: ringtoneURL)
+            audioPlayer?.numberOfLoops = -1 // Reproduzir indefinidamente
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+        } catch {
+            print("Erro ao inicializar o player de áudio: \(error.localizedDescription)")
         }
     }
     
-    func stopSound() {
+    func stopRingtone() {
         audioPlayer?.stop()
     }
+    
 }
+ 

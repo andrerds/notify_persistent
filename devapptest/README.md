@@ -31,4 +31,22 @@ https://tracker.my.com/blog/232/a-detailed-guide-to-mobile-push-notifications
 |
 https://www.innominds.com/blog/user-interaction-on-notifications-made-simple-and-flexible-with-rich-notifications-in-ios
 |
+## Conteudo sobre apns - não esta muito atualizado
+
 https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1
+|
+
+## Conteudo com implementar pushkit
+https://getstream.io/blog/pushkit-for-calls/
+|
+
+## Conteudo sobre apns - atualizado
+|
+https://developer.apple.com/documentation/UserNotifications/sending-notification-requests-to-apns
+
+## pushkit
+https://medium.com/mindful-engineering/voice-over-internet-protocol-voip-801ee15c3722
+https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html#//apple_ref/doc/uid/TP40015243-CH30#//apple_ref/doc/uid/TP40008194-CH8-SW1
+https://zeropush.com/guide/guide-to-pushkit-and-voip
+https://websitebeaver.com/callkit-swift-tutorial-super-easy
+https://medium.com/codex/how-to-build-a-voip-app-with-ios-callkit-and-sendbird-calls-d943d2efbddf
