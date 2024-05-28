@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject  var notificationManager =  NotificationManager ()
-    
+    var vibrationService =  VibrationService.shared
     
     var body: some View {
         ZStack{
@@ -17,18 +17,19 @@ struct ContentView: View {
                 NavigationLink("Notification", destination: NotificationView(data: ""))
                     .navigationTitle("Home")
             }
-            
             Spacer()
             VStack{
+                Text("hello word").padding(.all)
                 
                 Button("stop"){
+                    vibrationService.stopContinuousVibration()
                     print("stoppp aqui")
-                   
+                    
                 }
                 .buttonStyle(.bordered)
                 .padding()
                 .task {
-                    VibrationService.stopLongVibrate()
+                    await notificationManager.getAuthStatus()
                  }
                 
                 Button("Request Notification"){

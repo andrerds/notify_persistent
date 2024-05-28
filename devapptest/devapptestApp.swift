@@ -1,129 +1,34 @@
 import PushKit
+import AVFAudio
 import CallKit
+import CoreHaptics
+
 import UserNotifications
 import SwiftUI
 import UIKit
-import ActivityKit
-
-//class AppDelegate: UIResponder, UIApplicationDelegate {
-//    var window: UIWindow?
-//
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        let contentView = ContentView()
-//        let hostingController = UIHostingController(rootView: contentView)
-//        self.window?.rootViewController = hostingController
-//        self.window?.makeKeyAndVisible()
-//
-//        self.registerForVoIPPushNotifications()
-//        self.registerNotificationCategories()
-//        UNUserNotificationCenter.current().delegate = self
-//        
-//        return true
-//    }
-//
-//    func registerForVoIPPushNotifications() {
-//        let voipRegistry = PKPushRegistry(queue: DispatchQueue.main)
-//        voipRegistry.delegate = self
-//        voipRegistry.desiredPushTypes = [.voIP]
-//    }
-//
-//    func registerNotificationCategories() {
-//        let acceptAction = UNNotificationAction(identifier: "ACCEPT_ACTION", title: "Accept", options: [.foreground])
-//        let declineAction = UNNotificationAction(identifier: "DECLINE_ACTION", title: "Decline", options: [])
-//        
-//        let category = UNNotificationCategory(identifier: "CALL_INVITATION", actions: [acceptAction, declineAction], intentIdentifiers: [], options: [])
-//        UNUserNotificationCenter.current().setNotificationCategories([category])
-//    }
-//}
-//
-//extension AppDelegate: UNUserNotificationCenterDelegate {
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//        let userInfo = response.notification.request.content.userInfo
-//        let message = response.notification.request.content.body
-//        
-//        if response.actionIdentifier == "ACCEPT_ACTION" {
-//            openNotificationView(with: message)
-//        } else if response.actionIdentifier == "DECLINE_ACTION" {
-//            // Handle decline action
-//        } else {
-//            openNotificationView(with: message)
-//        }
-//        
-//        completionHandler()
-//    }
-//    
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        completionHandler([.alert, .sound, .badge])
-//    }
-//    
-//    private func openNotificationView(with message: String) {
-//        let notificationView = NotificationView(data: message)
-//        let hostingController = UIHostingController(rootView: notificationView)
-//        
-//        if let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-//            keyWindow.rootViewController?.present(hostingController, animated: true, completion: nil)
-//        } else {
-//            print("Error: No key window found")
-//        }
-//    }
-//}
-//extension AppDelegate: PKPushRegistryDelegate {
-//    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
-//        // Handle updated push credentials
-//        let deviceToken = pushCredentials.token.map { String(format: "%02x", $0) }.joined()
-//        print("Device Token: \(deviceToken)")
-//    }
-//    
-//    func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType) {
-//        print("Push token invalidated for type: \(type.rawValue)")
-//    }
-//    
-//    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-//        let payloadDict = payload.dictionaryPayload["aps"] as? [String: Any] ?? [:]
-//        let message = payloadDict["alert"] as! String
-//        
-//        if UIApplication.shared.applicationState == .active {
-//            DispatchQueue.main.async {
-//                let alert = UIAlertController(title: "VoIP Notification", message: message, preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                
-//                if let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-//                    keyWindow.rootViewController?.present(alert, animated: true, completion: nil)
-//                } else {
-//                    print("Error: No key window found")
-//                }
-//            }
-//        } else {
-//            let content = UNMutableNotificationContent()
-//            content.title = "Incoming Call"
-//            content.body = message
-//            content.categoryIdentifier = "CALL_INVITATION"
-//            content.sound = UNNotificationSound.default
-//            
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-//            let request = UNNotificationRequest(identifier: "VoIPDemoIdentifier", content: content, trigger: trigger)
-//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//        }
-//        completion()
-//    }
-//}
-
+ 
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var engine: CHHapticEngine?
+    @State private var navigateToNotificationView: Bool = false
+    @State private var notificationData: [AnyHashable: Any]?
+    var vibrationService = VibrationService.shared
     let window = UIWindow(frame: UIScreen.main.bounds)
     var callManager = CallManager()
-      var provider: CXProvider?
+    var provider: CXProvider?
     
+// MARK: didFinalauch
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
         self.registerForPushNotifications()
         self.voipRegistration()
-        self.setupCallKit()
+        self.initActionsNotications()
+        //        self.setupCallKit()
         return true
     }
 
-    // Register for VoIP notifications
+    // MARK:  Register for VoIP notifications
     func voipRegistration() {
         let mainQueue = DispatchQueue.main
         let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
@@ -131,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         voipRegistry.desiredPushTypes = [PKPushType.voIP]
     }
 
-    // Push notification setting
+    // MARK: Push notification setting
     func getNotificationSettings() {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -148,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    // Register push notification
+    // MARK:  Register push notification
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             [weak self] granted, error in
@@ -156,6 +61,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard granted else { return }
             self?.getNotificationSettings()
         }
+    }
+    
+    // MARK: initActionsNotications
+    func initActionsNotications(){
+        // Definir as ações e a categoria
+        let acceptAction = UNNotificationAction(identifier: "ACCEPT_ACTION", title: "Aceitar", options: [.foreground])
+        let rejectAction = UNNotificationAction(identifier: "REJECT_ACTION", title: "Recusar", options: [.destructive])
+        let category = UNNotificationCategory(identifier: "VISITOR_REQUEST", actions: [acceptAction, rejectAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+    }
+    
+    
+    // MARK: UISceneSession Lifecycle
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        // Called when a new scene session is being created.
+        // Use this method to select a configuration to create the new scene with.
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        // Called when the user discards a scene session.
+        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 }
 
@@ -165,6 +93,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         print("didReceive ======", userInfo)
+        // Update the state to navigate to NotificationView
+        DispatchQueue.main.async {
+            self.notificationData = userInfo
+            self.navigateToNotificationView = true
+        }
+        
         completionHandler()
     }
 
@@ -185,7 +119,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
            provider = CXProvider(configuration: configuration)
            provider?.setDelegate(callManager, queue: nil)
        }
-       
+    
     func reportIncomingCall(uuid: UUID, handle: String, callerName: String, hasVideo: Bool = false) {
         let update = CXCallUpdate()
         update.remoteHandle = CXHandle(type: .generic, value: handle)
@@ -195,7 +129,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         update.supportsDTMF = true
         update.supportsGrouping = false
         update.supportsUngrouping = false
-
         provider?.reportNewIncomingCall(with: uuid, update: update, completion: { error in
             if let error = error {
                 print("Error reporting incoming call: \(error.localizedDescription)")
@@ -203,6 +136,33 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 print("Incoming call successfully reported.")
             }
         })
+    }
+
+// MARK: Apresentar notificação
+    func sendLocalNotification() {
+       
+        vibrationService.stopContinuousVibration()
+        vibrationService.startContinuousVibration()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Renann Antunes está querendo entrar"
+        content.body = "Interaja com a notificação para Aceitar ou Recusar."
+        content.categoryIdentifier = "VISITOR_REQUEST"
+        content.interruptionLevel = .critical
+        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName("sub.caf"))
+   
+        // Adicionando botões de texto diretamente no corpo da notificação
+        content.userInfo = ["ACCEPT_ACTION": "ACCEPT_ACTION", "REJECT_ACTION": "REJECT_ACTION"]
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                self.vibrationService.stopContinuousVibration()
+                print("Erro ao adicionar notificação: \(error)")
+            }
+        }
     }
     
 }
@@ -222,25 +182,21 @@ extension AppDelegate: PKPushRegistryDelegate {
  
     // Handle incoming pushes
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-        print("dictionaryPayload:::", payload.dictionaryPayload)
-        
+        self.processData(payload: payload)
+        completion()
+    }
+    
+    private func processData(payload: PKPushPayload){
         let payloadDict = payload.dictionaryPayload["aps"] as? [String: Any] ?? [:]
         print("payload::::", payloadDict)
+        self.sendLocalNotification()
         
-        let alertDict = payloadDict["alert"] as? [String: Any] ?? [:]
-        let message = alertDict["body"] as! String
-        let title = alertDict["title"] as! String
-        let subtitle = alertDict["subtitle"] as! String
-        let customData = payloadDict["customData"] as? [String: Any] ?? [:]
-        
-        print("title", title)
-        print("subtitle", subtitle)
-        print("customData::::", customData)
- 
-        // simular a ligacao
-        let uuid = UUID()
-        reportIncomingCall(uuid: uuid, handle: "123456789", callerName: message, hasVideo: false)
-        completion()
+    }
+    
+    private func registerCall(uuidCaller: String?, handle: String, callerName: String) {
+        // Verificar se uuidCaller é uma string não vazia, caso contrário, gerar um novo UUID
+        let uuid = (uuidCaller != nil && !uuidCaller!.isEmpty) ? UUID(uuidString: uuidCaller!) ?? UUID() : UUID()
+        reportIncomingCall(uuid: uuid, handle: handle, callerName: callerName, hasVideo: false)
     }
 }
 

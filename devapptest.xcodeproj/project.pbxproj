@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171314F82C012F24007F8D52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 171314F72C012F24007F8D52 /* Launch Screen.storyboard */; };
+		171CB2EE2C06103700BD0CB3 /* alert_sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 171CB2ED2C06103600BD0CB3 /* alert_sound.caf */; };
 		1775C4A72BCDD761009DB219 /* devapptestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775C4A62BCDD761009DB219 /* devapptestApp.swift */; };
 		1775C4A92BCDD761009DB219 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775C4A82BCDD761009DB219 /* ContentView.swift */; };
 		1775C4AB2BCDD763009DB219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1775C4AA2BCDD763009DB219 /* Assets.xcassets */; };
@@ -14,14 +16,12 @@
 		17969F4F2BCF44170076F6C9 /* SoundPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */; };
 		17969F572BCF46E40076F6C9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F562BCF46E40076F6C9 /* NotificationService.swift */; };
 		17969F5B2BCF46E40076F6C9 /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 17969F542BCF46E40076F6C9 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		17969F612BCF53EC0076F6C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F602BCF53EC0076F6C9 /* ViewController.swift */; };
 		17969F662BCF5A300076F6C9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F652BCF5A300076F6C9 /* NotificationManager.swift */; };
 		17969F682BCF625E0076F6C9 /* VibrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17969F672BCF625E0076F6C9 /* VibrationService.swift */; };
 		17A6B9EE2BCE9E530049AD6A /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A6B9ED2BCE9E530049AD6A /* NotificationView.swift */; };
 		17A6B9F12BCE9ED10049AD6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17A6B9EF2BCE9ED10049AD6A /* GoogleService-Info.plist */; };
 		17A6B9F22BCE9ED10049AD6A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 17A6B9F02BCE9ED10049AD6A /* README.md */; };
 		17A6B9F52BCE9F3E0049AD6A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 17A6B9F42BCE9F3E0049AD6A /* FirebaseMessaging */; };
-		17CF73552BFF850500305163 /* VoipActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF73542BFF850500305163 /* VoipActivityAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		171314F72C012F24007F8D52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		171CB2ED2C06103600BD0CB3 /* alert_sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alert_sound.caf; path = devapptest/alert_sound.caf; sourceTree = SOURCE_ROOT; };
 		1775C4A32BCDD761009DB219 /* devapptest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devapptest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1775C4A62BCDD761009DB219 /* devapptestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = devapptestApp.swift; sourceTree = "<group>"; };
 		1775C4A82BCDD761009DB219 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 		17969F542BCF46E40076F6C9 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		17969F562BCF46E40076F6C9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		17969F582BCF46E40076F6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17969F602BCF53EC0076F6C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		17969F652BCF5A300076F6C9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		17969F672BCF625E0076F6C9 /* VibrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationService.swift; sourceTree = "<group>"; };
 		17A6B9ED2BCE9E530049AD6A /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		17A6B9F02BCE9ED10049AD6A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		17A6B9F62BCEAA380049AD6A /* devapptest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = devapptest.entitlements; sourceTree = "<group>"; };
 		17A6B9F72BCEAA480049AD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		17CF73542BFF850500305163 /* VoipActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoipActivityAttributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,7 @@
 		1775C4A52BCDD761009DB219 /* devapptest */ = {
 			isa = PBXGroup;
 			children = (
+				171CB2ED2C06103600BD0CB3 /* alert_sound.caf */,
 				17A6B9F72BCEAA480049AD6A /* Info.plist */,
 				17A6B9F62BCEAA380049AD6A /* devapptest.entitlements */,
 				17A6B9EF2BCE9ED10049AD6A /* GoogleService-Info.plist */,
@@ -116,13 +117,12 @@
 				1775C4A62BCDD761009DB219 /* devapptestApp.swift */,
 				1775C4A82BCDD761009DB219 /* ContentView.swift */,
 				1775C4AA2BCDD763009DB219 /* Assets.xcassets */,
+				171314F72C012F24007F8D52 /* Launch Screen.storyboard */,
 				1775C4AC2BCDD763009DB219 /* Preview Content */,
 				17A6B9ED2BCE9E530049AD6A /* NotificationView.swift */,
 				17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */,
-				17969F602BCF53EC0076F6C9 /* ViewController.swift */,
 				17969F652BCF5A300076F6C9 /* NotificationManager.swift */,
 				17969F672BCF625E0076F6C9 /* VibrationService.swift */,
-				17CF73542BFF850500305163 /* VoipActivityAttributes.swift */,
 			);
 			path = devapptest;
 			sourceTree = "<group>";
@@ -231,9 +231,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171CB2EE2C06103700BD0CB3 /* alert_sound.caf in Resources */,
 				1775C4AE2BCDD763009DB219 /* Preview Assets.xcassets in Resources */,
 				1775C4AB2BCDD763009DB219 /* Assets.xcassets in Resources */,
 				17A6B9F22BCE9ED10049AD6A /* README.md in Resources */,
+				171314F82C012F24007F8D52 /* Launch Screen.storyboard in Resources */,
 				17A6B9F12BCE9ED10049AD6A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,8 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				17969F662BCF5A300076F6C9 /* NotificationManager.swift in Sources */,
-				17CF73552BFF850500305163 /* VoipActivityAttributes.swift in Sources */,
-				17969F612BCF53EC0076F6C9 /* ViewController.swift in Sources */,
 				1775C4A92BCDD761009DB219 /* ContentView.swift in Sources */,
 				1775C4A72BCDD761009DB219 /* devapptestApp.swift in Sources */,
 				17A6B9EE2BCE9E530049AD6A /* NotificationView.swift in Sources */,
@@ -407,6 +407,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = devapptest/devapptest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -415,9 +416,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = devapptest/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,6 +447,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = devapptest/devapptest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -451,9 +456,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = devapptest/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

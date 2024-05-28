@@ -7,27 +7,22 @@
 
 import SwiftUI
 
-
-
-
 struct NotificationView: View {
     
+    @State private var navigateToNotificationView: Bool = false
+    @State private var notificationData: [AnyHashable: Any]?
     
-        
+    
     var data: Any
-       var body: some View {
-           VStack(alignment: .center, spacing: 10.0) {
-               CircleView()
-               ContatctView(title: "Liberar evento", desc: "Evento nome")
-                  
-               Spacer()
-               ButtonsAction()
-           }
-           
-           .frame(maxWidth: .infinity)
-           
-           
-       }
+    var body: some View {
+        VStack(alignment: .center, spacing: 10.0) {
+            CircleView()
+            ContatctView(title: "Liberar evento", desc: "Evento nome")
+            Spacer()
+            ButtonsAction()
+        }
+        .frame(maxWidth: .infinity)
+    }
 }
 
 struct CircleView:View {

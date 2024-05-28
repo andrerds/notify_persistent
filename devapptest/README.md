@@ -50,3 +50,7 @@ https://developer.apple.com/library/archive/documentation/Performance/Conceptual
 https://zeropush.com/guide/guide-to-pushkit-and-voip
 https://websitebeaver.com/callkit-swift-tutorial-super-easy
 https://medium.com/codex/how-to-build-a-voip-app-with-ios-callkit-and-sendbird-calls-d943d2efbddf
+
+## criticalAlert
+https://medium.com/bandyliuk-code/how-to-implement-ios-critical-alerts-july-2021-f3bfbcc87d3f
+https://medium.com/@shluschenko/alarm-applications-local-notifications-swift-a220af26e6ef
