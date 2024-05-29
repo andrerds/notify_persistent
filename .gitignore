@@ -3,3 +3,4 @@ send_pushkit_sandbox/
 send_pushkit_sandbox/AuthKey_4L8B43RHU2.p8
 .env
 AuthKey_4L8B43RHU2.p8
+devapptest/GoogleService-Info.plist
