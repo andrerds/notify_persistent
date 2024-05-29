@@ -1,0 +1,17 @@
+{
+    "aps": {
+        "alert": {
+            "title": "New Message",
+            "subtitle": "From John Doe",
+            "body": "Hey, let's catch up later!"
+        },
+        "badge": 3,
+        "sound": "default"
+        
+    },
+    "customData": {
+        "messageId": "abc123",
+        "senderId": "john_doe",
+        "chatId": "chat_456"
+    }
+}
