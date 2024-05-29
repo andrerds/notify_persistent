@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		171314F82C012F24007F8D52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 171314F72C012F24007F8D52 /* Launch Screen.storyboard */; };
 		171CB2EE2C06103700BD0CB3 /* alert_sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 171CB2ED2C06103600BD0CB3 /* alert_sound.caf */; };
+		171CB2F02C061CA700BD0CB3 /* CallKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CB2EF2C061CA700BD0CB3 /* CallKitService.swift */; };
+		171CB2F22C06206A00BD0CB3 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CB2F12C06206A00BD0CB3 /* NavigationManager.swift */; };
+		173AEA5E2C06609D000FE3DE /* out2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 173AEA5D2C06609D000FE3DE /* out2.caf */; };
 		1775C4A72BCDD761009DB219 /* devapptestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775C4A62BCDD761009DB219 /* devapptestApp.swift */; };
 		1775C4A92BCDD761009DB219 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775C4A82BCDD761009DB219 /* ContentView.swift */; };
 		1775C4AB2BCDD763009DB219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1775C4AA2BCDD763009DB219 /* Assets.xcassets */; };
@@ -51,10 +54,13 @@
 /* Begin PBXFileReference section */
 		171314F72C012F24007F8D52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		171CB2ED2C06103600BD0CB3 /* alert_sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alert_sound.caf; path = devapptest/alert_sound.caf; sourceTree = SOURCE_ROOT; };
+		171CB2EF2C061CA700BD0CB3 /* CallKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallKitService.swift; sourceTree = "<group>"; };
+		171CB2F12C06206A00BD0CB3 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		173AEA5D2C06609D000FE3DE /* out2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = out2.caf; sourceTree = "<group>"; };
 		1775C4A32BCDD761009DB219 /* devapptest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devapptest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1775C4A62BCDD761009DB219 /* devapptestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = devapptestApp.swift; sourceTree = "<group>"; };
 		1775C4A82BCDD761009DB219 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1775C4AA2BCDD763009DB219 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1775C4AA2BCDD763009DB219 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = devapptest/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		1775C4AD2BCDD763009DB219 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerService.swift; sourceTree = "<group>"; };
 		17969F542BCF46E40076F6C9 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				171CB2ED2C06103600BD0CB3 /* alert_sound.caf */,
+				173AEA5D2C06609D000FE3DE /* out2.caf */,
 				17A6B9F72BCEAA480049AD6A /* Info.plist */,
 				17A6B9F62BCEAA380049AD6A /* devapptest.entitlements */,
 				17A6B9EF2BCE9ED10049AD6A /* GoogleService-Info.plist */,
@@ -123,6 +130,8 @@
 				17969F4E2BCF44170076F6C9 /* SoundPlayerService.swift */,
 				17969F652BCF5A300076F6C9 /* NotificationManager.swift */,
 				17969F672BCF625E0076F6C9 /* VibrationService.swift */,
+				171CB2EF2C061CA700BD0CB3 /* CallKitService.swift */,
+				171CB2F12C06206A00BD0CB3 /* NavigationManager.swift */,
 			);
 			path = devapptest;
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 				1775C4AE2BCDD763009DB219 /* Preview Assets.xcassets in Resources */,
 				1775C4AB2BCDD763009DB219 /* Assets.xcassets in Resources */,
 				17A6B9F22BCE9ED10049AD6A /* README.md in Resources */,
+				173AEA5E2C06609D000FE3DE /* out2.caf in Resources */,
 				171314F82C012F24007F8D52 /* Launch Screen.storyboard in Resources */,
 				17A6B9F12BCE9ED10049AD6A /* GoogleService-Info.plist in Resources */,
 			);
@@ -259,6 +269,8 @@
 				1775C4A72BCDD761009DB219 /* devapptestApp.swift in Sources */,
 				17A6B9EE2BCE9E530049AD6A /* NotificationView.swift in Sources */,
 				17969F682BCF625E0076F6C9 /* VibrationService.swift in Sources */,
+				171CB2F22C06206A00BD0CB3 /* NavigationManager.swift in Sources */,
+				171CB2F02C061CA700BD0CB3 /* CallKitService.swift in Sources */,
 				17969F4F2BCF44170076F6C9 /* SoundPlayerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +428,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = devapptest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "KA Test";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -456,6 +469,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = devapptest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "KA Test";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

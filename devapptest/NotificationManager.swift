@@ -20,7 +20,7 @@ class NotificationManager: ObservableObject{
     
     func request() async{
         do {
-            try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .criticalAlert])
+            try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
              await getAuthStatus()
         } catch{
             print(error)

@@ -32,12 +32,12 @@ final class VibrationService {
     // Iniciar reprodução do áudio silencioso
     private func startSilentAudio() {
         // Start the background music:
-        if let musicPath = Bundle.main.path(forResource: "alert_sound.caf", ofType: nil) {
+        if let musicPath = Bundle.main.path(forResource: "out2.caf", ofType: nil) {
             print("SHOULD HEAR MUSIC NOW", musicPath)
             let url = URL(fileURLWithPath: musicPath)
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.numberOfLoops = -1
+                audioPlayer?.numberOfLoops = 2
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
             }

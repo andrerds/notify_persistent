@@ -11,7 +11,7 @@ struct NotificationView: View {
     
     @State private var navigateToNotificationView: Bool = false
     @State private var notificationData: [AnyHashable: Any]?
-    
+   
     
     var data: Any
     var body: some View {
@@ -64,32 +64,71 @@ struct ContatctView:View {
     }
 }
 
-struct ButtonsAction:View {
+struct  ButtonsAction: View {
+    var vibrationService = VibrationService.shared
+    @EnvironmentObject var navigationManager: NavigationManager
+    @State private var showToast = false
+    @State private var message = ""
+    
     var body: some View {
-        HStack(spacing: 70) {
-      
-            ButtonView(
-                labelName: "Recusar", icon: "check",
-                  colorBackground:  Color.red, colorForegroundColor:Color.white,
-            action: {
-                print("decline")
-            }
-            )
-           
+        VStack {
             
-            ButtonView(
-                labelName: "Liberar", icon: "check",
-                  colorBackground:  Color.green, colorForegroundColor:Color.white,
-            action: {
-                print("Accept")
+            HStack(spacing: 70) {
+              
+                ButtonView(
+                    labelName: "Recusar", icon: "check",
+                    colorBackground:  Color.red, colorForegroundColor: Color.white,
+                    action: {
+                        print("Decline")
+                        vibrationService.stopContinuousVibration()
+                        navigationManager.currentScreen = .home
+                        message = "Recusado com sucesso!"
+                        showToast = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            showToast = false
+                            
+                        }
+                    }
+                )
+                
+                ButtonView(
+                    labelName: "Liberar", icon: "check",
+                    colorBackground:  Color.green, colorForegroundColor: Color.white,
+                    action: {
+                        print("Accept")
+                        vibrationService.stopContinuousVibration()
+                        message = "Liberado com sucesso!"
+                        showToast = true
+                        navigationManager.currentScreen = .home
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            showToast = false
+                        }
+                    }
+                )
             }
-            )
-
+            .padding(.horizontal)
+            
+            if showToast {
+                ToastView(message: message)
+                    .transition(.opacity)
+            }
         }
-        .padding(.horizontal)
     }
 }
 
+struct ToastView:View {
+    var message:String
+    
+    var body: some View {
+       
+        Text(message)
+            .padding()
+            .background(Color.black.opacity(0.8))
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .padding(.top, 20)
+    }
+}
 struct ButtonView: View {
     var labelName: String
     var icon: String

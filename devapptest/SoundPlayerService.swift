@@ -12,20 +12,23 @@ import UIKit
 
 class SoundPlayerService {
     static let shared = SoundPlayerService()
-    
+ 
     private var audioPlayer: AVAudioPlayer?
     
-    func playRingtone() {
+    func playRingtone(loops: Int) {
+//        Bundle.main.path(forResource: "out2.caf", ofType: nil)
         // Obtém o caminho do som do ringtone padrão do sistema
-        guard let ringtoneURL = Bundle.main.url(forResource: "ringtone", withExtension: "mp3") else {
+        guard let ringtoneURL = Bundle.main.path(forResource: "out2.caf", ofType: nil) else {
             print("O arquivo de ringtone do sistema não pôde ser encontrado.")
             return
         }
+        print("SHOULD HEAR MUSIC NOW", ringtoneURL)
+        let url = URL(fileURLWithPath: ringtoneURL)
         
         do {
             // Configura e inicia a reprodução do ringtone
-            audioPlayer = try AVAudioPlayer(contentsOf: ringtoneURL)
-            audioPlayer?.numberOfLoops = -1 // Reproduzir indefinidamente
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = loops // Reproduzir indefinidamente
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
         } catch {
@@ -35,6 +38,16 @@ class SoundPlayerService {
     
     func stopRingtone() {
         audioPlayer?.stop()
+    }
+    
+    // Configurar a sessão de áudio
+    func setupAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Error setting up audio session: \(error)")
+        }
     }
     
 }

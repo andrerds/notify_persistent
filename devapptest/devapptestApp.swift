@@ -9,18 +9,15 @@ import UIKit
  
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var engine: CHHapticEngine?
-    @State private var navigateToNotificationView: Bool = false
-    @State private var notificationData: [AnyHashable: Any]?
+    var navigationManager: NavigationManager?
+
     var vibrationService = VibrationService.shared
     let window = UIWindow(frame: UIScreen.main.bounds)
-    var callManager = CallManager()
-    var provider: CXProvider?
+   
     
 // MARK: didFinalauch
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        
+    
         self.registerForPushNotifications()
         self.voipRegistration()
         self.initActionsNotications()
@@ -89,54 +86,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK:- UNUserNotificationCenterDelegate
 extension AppDelegate: UNUserNotificationCenterDelegate {
-
+    
+    
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         print("didReceive ======", userInfo)
-        // Update the state to navigate to NotificationView
         DispatchQueue.main.async {
-            self.notificationData = userInfo
-            self.navigateToNotificationView = true
-        }
-        
+             
+                   self.navigationManager?.currentScreen = .specificScreen
+               }
         completionHandler()
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         print("willPresent ======", userInfo)
-        completionHandler([.alert, .sound, .badge])
+        DispatchQueue.main.async {
+             
+                   self.navigationManager?.currentScreen = .specificScreen
+               }
+        completionHandler([.list, .sound, .badge])
     }
     
-    //MARK: - Setup callKit
+
     
-    func setupCallKit() {
-           let configuration = CXProviderConfiguration(localizedName: "VoIP App")
-           configuration.supportsVideo = false
-           configuration.maximumCallGroups = 1
-           configuration.maximumCallsPerCallGroup = 1
-           
-           provider = CXProvider(configuration: configuration)
-           provider?.setDelegate(callManager, queue: nil)
-       }
-    
-    func reportIncomingCall(uuid: UUID, handle: String, callerName: String, hasVideo: Bool = false) {
-        let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: handle)
-        update.localizedCallerName = callerName
-        update.hasVideo = hasVideo
-        update.supportsHolding = true
-        update.supportsDTMF = true
-        update.supportsGrouping = false
-        update.supportsUngrouping = false
-        provider?.reportNewIncomingCall(with: uuid, update: update, completion: { error in
-            if let error = error {
-                print("Error reporting incoming call: \(error.localizedDescription)")
-            } else {
-                print("Incoming call successfully reported.")
-            }
-        })
-    }
+  
 
 // MARK: Apresentar notificação
     func sendLocalNotification() {
@@ -148,8 +123,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         content.title = "Renann Antunes está querendo entrar"
         content.body = "Interaja com a notificação para Aceitar ou Recusar."
         content.categoryIdentifier = "VISITOR_REQUEST"
-        content.interruptionLevel = .critical
-        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName("sub.caf"))
+//        content.interruptionLevel = .critical
+//        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName("sub.caf"))
    
         // Adicionando botões de texto diretamente no corpo da notificação
         content.userInfo = ["ACCEPT_ACTION": "ACCEPT_ACTION", "REJECT_ACTION": "REJECT_ACTION"]
@@ -192,38 +167,28 @@ extension AppDelegate: PKPushRegistryDelegate {
         self.sendLocalNotification()
         
     }
-    
-    private func registerCall(uuidCaller: String?, handle: String, callerName: String) {
-        // Verificar se uuidCaller é uma string não vazia, caso contrário, gerar um novo UUID
-        let uuid = (uuidCaller != nil && !uuidCaller!.isEmpty) ? UUID(uuidString: uuidCaller!) ?? UUID() : UUID()
-        reportIncomingCall(uuid: uuid, handle: handle, callerName: callerName, hasVideo: false)
-    }
+     
 }
 
-class CallManager: NSObject, CXProviderDelegate {
-    func providerDidReset(_ provider: CXProvider) {}
-    
-    func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
-        action.fulfill()
-    }
-    
-    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        action.fulfill()
-    }
-    
-    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
-        action.fulfill()
-    }
-}
+
 
 @main
 struct devapptestApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    @State private var currentScreen: AppScreen = .home
+    @StateObject private var navigationManager = NavigationManager()
+
     
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ContentView()
+                               .environmentObject(navigationManager)
+                               .onAppear {
+                                   appDelegate.navigationManager = navigationManager
+                               }
+                   
             }
         }
     }
